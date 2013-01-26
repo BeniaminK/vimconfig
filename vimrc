@@ -89,4 +89,4 @@ set expandtab
 
 " Pathogen - options:
 execute pathogen#infect()
-
+Helptags

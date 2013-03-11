@@ -5,11 +5,7 @@ set nocompatible
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
-if has("vms")
-  set nobackup		" do not keep a backup file, use versions instead
-else
-  set backup		" keep a backup file
-endif
+set nobackup		" do not keep a backup file, use versions instead
 set history=40		" keep 50 lines of command line history
 set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
@@ -27,7 +23,7 @@ inoremap <C-U> <C-G>u<C-U>
 
 " In many terminal emulators the mouse works just fine, thus enable it.
 if has('mouse')
-  set mouse=a
+  set mouse=v
 endif
 
 " Switch syntax highlighting on
@@ -77,16 +73,22 @@ if !exists(":DiffOrig")
 		  \ | wincmd p | diffthis
 endif
 
-" Beniamin Kalinowski - added support for bash-support
+""""""""""""""""""" bash-support
 filetype plugin on
 let g:BASH_AuthorName   = 'Beniamin Kalinowski'
 let g:BASH_Email        = 'beniamin(dot)kalinowski(at)gmail(dot)com'
 let g:BASH_Company      = 'OpenSource private'
-" Tabs indent: 2 and only spaces
+
+""""""""""""""""""" Tabs indent: 2 and only spaces
 set tabstop=2
 set shiftwidth=2
 set expandtab
 
-" Pathogen - options:
+""""""""""""""""""" PROTO
+augroup filetype
+  au! BufRead,BufNewFile *.proto setfiletype proto
+augroup end
+
+""""""""""""""""""" Pathogen - options:
 execute pathogen#infect()
 Helptags

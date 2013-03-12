@@ -1,6 +1,6 @@
-"===================================================================================
+" ===================================================================================
 " GENERAL SETTINGS
-"===================================================================================
+" ===================================================================================
 " Use Vim settings, rather than Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
 set nocompatible
@@ -22,12 +22,9 @@ endif
 " Switch syntax highlighting on.
 "-------------------------------------------------------------------------------
 syntax    on            
-set backupdir =$HOME/.vim.backupdir
 set dictionary=$HOME/.vim/wordlists/polish.list
-
 "-------------------------------------------------------------------------------
 " Various settings
-set nobackup		" do not keep a backup file, use versions instead
 "-------------------------------------------------------------------------------
 set autoindent                  " copy indent from current line
 set autoread                    " read open files again when changed outside Vim
@@ -36,13 +33,17 @@ set backspace=indent,eol,start  " backspacing over everything in insert mode
 set backup                      " keep a backup file
 set browsedir=current           " which directory to use for the file browser
 set complete+=k                 " scan the files given with the 'dictionary' option
+set display+=lastline           "
 set expandtab                   " use spaces to insert a <Tab>
 set history=50                  " keep 50 lines of command line history
 set hlsearch                    " highlight the last used search pattern
 set incsearch                   " do incremental searching
+set laststatus=2                "
 set listchars=tab:>.,eol:\$     " strings to use in 'list' mode
 set mouse=a                     " enable the use of the mouse
 set nowrap                      " do not wrap lines
+set nobackup		                " do not keep a backup file, use versions instead
+set nrformats-=octal            " 
 set number                      " precede each line with its line number
 set popt=left:8pc,right:3pc     " print options
 set ruler                       " show the cursor position all the time
@@ -53,18 +54,14 @@ set tabstop=2                   " number of spaces that a <Tab> counts for
 set visualbell                  " visual bell instead of beeping
 set wildignore=*.bak,*.o,*.e,*~ " wildmenu: ignore these extensions
 set wildmenu                    " command-line completion in an enhanced mode
-
-set showmatch                   " when a bracket is inserted, jump to the matching one
-set smarttab                    " 
-set nrformats-=octal            " 
+set scrolloff=1                 "
 set shiftround                  " 
+set showmatch                   " when a bracket is inserted, jump to the matching one
+set sidescrolloff=5             "
+set smarttab                    " 
 set ttimeout                    " 
 set ttimeoutlen=50              " 
-set laststatus=2                "
-set scrolloff=1                 "
-set sidescrolloff=5             "
-set display+=lastline           "
-"
+
 "===================================================================================
 " BUFFERS, WINDOWS
 "===================================================================================
@@ -137,25 +134,7 @@ nmap  <C-q>    :wqa<CR>
 " comma always followed by a space
 "-------------------------------------------------------------------------------
 inoremap  ,  ,<Space>
-"
-"-------------------------------------------------------------------------------
-" autocomplete parenthesis, brackets and braces
-"-------------------------------------------------------------------------------
-inoremap ( ()<Left>
-inoremap [ []<Left>
-inoremap { {}<Left>
-"
-vnoremap ( u()<Esc>P<Right>%
-vnoremap [ s[]<Esc>P<Right>%
-vnoremap { s{}<Esc>P<Right>%
-"
-"-------------------------------------------------------------------------------
-" autocomplete quotes (visual and select mode)
-"-------------------------------------------------------------------------------
-xnoremap  '  s''<Esc>P<Right>
-xnoremap  "  s""<Esc>P<Right>
-xnoremap  `  s``<Esc>P<Right>
-"
+
 "-------------------------------------------------------------------------------
 " Change the working directory to the directory containing the current file
 "-------------------------------------------------------------------------------
@@ -171,7 +150,7 @@ let Tlist_GainFocus_On_ToggleOpen = 1
 let Tlist_Close_On_Select 				= 1
 " Don't use Ex mode, use Q for formatting
 map Q gq
-
+"
 let tlist_make_settings  = 'make;m:makros;t:targets'
 " CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
 " so that you can undo CTRL-U after inserting a line break.
@@ -209,11 +188,6 @@ if &listchars ==# 'eol:$'
   endif
 endif
 
-set autoread
-set autowrite
-set fileformats+=mac
-
-set viminfo^=!
 
 " Allow color schemes to do bright colors without forcing bold.
 if &t_Co == 8 && $TERM !~# '^linux'
@@ -231,10 +205,6 @@ endif
 
 """"""""""""""""""" bash-support
 nnoremap Y y$
-
-
-
-""""""""""""""""""" Tabs indent: 2 and only spaces
 
 """"""""""""""""""" PROTO
 augroup filetype

@@ -47,10 +47,10 @@ set nrformats-=octal            "
 set number                      " precede each line with its line number
 set popt=left:8pc,right:3pc     " print options
 set ruler                       " show the cursor position all the time
-set shiftwidth=2                " number of spaces to use for each step of indent
+set shiftwidth=4                " number of spaces to use for each step of indent
 set showcmd                     " display incomplete commands
 set smartindent                 " smart autoindenting when starting a new line
-set tabstop=2                   " number of spaces that a <Tab> counts for
+set tabstop=4                   " number of spaces that a <Tab> counts for
 set visualbell                  " visual bell instead of beeping
 set wildignore=*.bak,*.o,*.e,*~ " wildmenu: ignore these extensions
 set wildmenu                    " command-line completion in an enhanced mode
